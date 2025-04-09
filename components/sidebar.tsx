@@ -6,7 +6,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import MobileNav from './mobileNav';
-
+import {
+    SignedIn,
+    UserButton,
+  } from '@clerk/nextjs'
 import {
     Home,
     CalendarDays,
@@ -27,8 +30,19 @@ const Sidebar = () => {
     const pathname = usePathname();
   return (
     <section className='sticky left-0 top-0 flex h-screen w-fit 
-    flex-col justify-between p-6 pt-20 max-sm:hidden lg:w-[264px] bg-gray-100'>
-        <div className='flex flex-1 flex-col gap-2'>
+    flex-col px-6 py-3 max-sm:hidden lg:w-[264px] bg-gray-100'>
+        <div className='flex justify-between'>
+            <Link href='/' className='flex items-center gap-1'>
+                <p className='text-[30px] font-extrabold max-sm:hidden'>Prop</p>
+            </Link>
+            <div className='flex items-center justify-center'>
+                <SignedIn>
+                    <UserButton afterSignOutUrl='/sign-in' />
+                </SignedIn>
+                <MobileNav />
+            </div>
+        </div>
+        <div className='flex flex-1 flex-col gap-2 '>
             <MobileNav />
             {  
                 links.map((link) => {
