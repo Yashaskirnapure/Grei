@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import MobileNav from './mobileNav';
+import MobileNav from './MobileNav';
 import {
     SignedIn,
     UserButton,
@@ -29,11 +29,13 @@ const iconMap: Record<string, React.ElementType> = {
 const Sidebar = () => {
     const pathname = usePathname();
   return (
-    <section className='sticky left-0 top-0 flex h-screen w-fit 
-    flex-col px-6 py-3 max-sm:hidden lg:w-[264px] bg-gray-100'>
+    <section
+        className="sticky left-0 top-0 flex h-screen w-fit flex-col px-6 py-3 max-sm:hidden lg:w-[264px] text-white"
+        style={{ backgroundColor: "#162332" }}
+    >
         <div className='flex justify-between'>
             <Link href='/' className='flex items-center gap-1'>
-                <p className='text-[30px] font-extrabold max-sm:hidden'>Prop</p>
+                <p className='text-[30px] font-extrabold max-lg:hidden'>Prop</p>
             </Link>
             <div className='flex items-center justify-center'>
                 <SignedIn>
@@ -49,17 +51,19 @@ const Sidebar = () => {
                     const isActive = pathname === link.route;
                     const Icon = iconMap[link.label];
 
-                    console.log(link.label);
                     return (
-                        <Link 
+                        <Link
                             href={link.route}
                             key={link.label}
-                            className={cn('flex gap-4 items-center p-2 rounded-lg justify-start',
-                                {
-                                    'bg-blue-100': isActive
-                                }
+                            className={cn(
+                                'flex gap-4 items-center p-2 rounded-lg justify-start',
+                                { 'text-white': isActive }
                             )}
+                            style={{
+                                backgroundColor: isActive ? '#2a3a48' : 'transparent'
+                            }}
                         >
+
                             <Icon size={20} />
                             <span className="text-lg font-semibold max-lg:hidden">{link.label}</span>
                         </Link>

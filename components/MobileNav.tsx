@@ -41,9 +41,13 @@ const MobileNav = () => {
                 <Menu 
                     size={24}   
                     className='cursor-pointer sm:hidden'
+                    color='white'
                 />
             </SheetTrigger>
-            <SheetContent side='left' className=''>
+            <SheetContent 
+                side='left'
+                style={{ backgroundColor: "#162332", color: "white" }}
+            >
                 <SheetHeader>
                     <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
                 </SheetHeader>
@@ -58,16 +62,16 @@ const MobileNav = () => {
                                     const isActive = pathname === link.route;
                                     const Icon = iconMap[link.label];
 
-                                    console.log(link.label);
                                     return (
                                         <Link 
                                             href={link.route}
                                             key={link.label}
                                             className={cn('flex gap-4 items-center p-2 rounded-lg justify-start mx-5',
-                                                {
-                                                    'bg-blue-100': isActive
-                                                }
-                                            )}
+                                                { 'text-white': isActive }
+                                                )}
+                                                style={{
+                                backgroundColor: isActive ? '#2a3a48' : 'transparent'
+                            }}
                                         >
                                             <Icon size={20} />
                                             <span className="text-lg font-semibold">{link.label}</span>
