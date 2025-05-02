@@ -161,7 +161,7 @@ const MeetingTypeList = () => {
                     navigator.clipboard.writeText(meetingLink);
                     toast("Link Copied");
                 }}
-            /> 
+            />
         }
 
         <MeetingModal
@@ -171,6 +171,15 @@ const MeetingTypeList = () => {
             className = "text-center"
             buttonText = "Start Meeting"
             handleClick = {createMeeting}
+        />
+
+        <MeetingModal
+            isOpen = {meetingState === 'isJoiningMeeting'}
+            onClose = {() => { setMeetingState(undefined) }}
+            title = "Join meeting"
+            className = "text-center"
+            buttonText = "Start Meeting"
+            handleClick = { () => router.push(values.link) }
         />
     </section>
   )
