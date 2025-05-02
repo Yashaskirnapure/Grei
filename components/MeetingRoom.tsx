@@ -7,7 +7,7 @@ import {
   useCallStateHooks,
   CallingState
 } from '@stream-io/video-react-sdk';
-import { LayoutList, Speaker, Users } from 'lucide-react';
+import { LayoutList, Users } from 'lucide-react';
 import React from 'react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -15,8 +15,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { UseSearchParams } from '@stream-io/video-react-sdk/dist/src/components/Search/hooks';

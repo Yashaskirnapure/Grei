@@ -26,7 +26,8 @@ const CallList = ({ type } : { type: 'ended' | 'upcoming' | 'recordings' }) => {
   
         setRecordings(recordings);
       }catch(err){
-        toast('Failed to fetch recordings. Please try again later.')
+        toast('Failed to fetch recordings. Please try again later.');
+        console.log(err);
       }
     }
 

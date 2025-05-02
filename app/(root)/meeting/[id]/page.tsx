@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useUser } from '@clerk/nextjs';
 import { StreamCall, StreamTheme } from '@stream-io/video-react-sdk';
 import { useState } from 'react';
@@ -9,8 +9,8 @@ import MeetingRoom from '@/components/MeetingRoom';
 import { useGetCallById } from '@/hooks/useGetCallById';
 import Loader from '@/components/Loader';
 
-const page = ({ params } : { params: Promise<{id: string }>}) => {
-  const { user, isLoaded } = useUser();
+const Page = ({ params } : { params: Promise<{id: string }>}) => {
+  const { isLoaded } = useUser();
   const [ isSetupComplete, setIsSetupComplete ] = useState(false);
   const { id } = React.use(params);
   const { call, isCallLoading } = useGetCallById(id);
@@ -28,4 +28,4 @@ const page = ({ params } : { params: Promise<{id: string }>}) => {
   )
 }
 
-export default page
+export default Page

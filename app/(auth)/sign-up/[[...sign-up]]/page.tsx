@@ -1,6 +1,5 @@
 import React from 'react';
 import { SignUp } from '@clerk/nextjs';
-import Navbar from '@/components/Navbar';
 
 const SignUpPage = () => {
   return (
