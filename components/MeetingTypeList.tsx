@@ -7,7 +7,8 @@ import { useRouter } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 import { toast } from 'sonner';
-import { Textarea } from "@/components/ui/textarea"
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from './ui/input';
 import ReactDatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -176,11 +177,17 @@ const MeetingTypeList = () => {
         <MeetingModal
             isOpen = {meetingState === 'isJoiningMeeting'}
             onClose = {() => { setMeetingState(undefined) }}
-            title = "Join meeting"
+            title = "Enter Meeting Link"
             className = "text-center"
-            buttonText = "Start Meeting"
+            buttonText = "Join Meeting"
             handleClick = { () => router.push(values.link) }
-        />
+        >
+            <Input
+                placeholder='Meeting Link'
+                className='bg-gray-700 px-4 py-3 border-none focus-visible:ring-0 focus-visible:ring-offset-0'
+                onChange={(e) => { setValues({...values, link: e.target.value }) }}
+            />
+        </MeetingModal>
     </section>
   )
 }

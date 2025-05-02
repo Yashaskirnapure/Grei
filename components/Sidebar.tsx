@@ -35,7 +35,7 @@ const Sidebar = () => {
     >
         <div className='flex justify-between'>
             <Link href='/' className='flex items-center gap-1'>
-                <p className='text-[30px] font-extrabold max-lg:hidden'>Prop</p>
+                <p className='text-[30px] font-extrabold max-lg:hidden'>Grei</p>
             </Link>
             <div className='flex items-center justify-center'>
                 <SignedIn>
